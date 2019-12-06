@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-server-deployment
+  labels:
+    name: web-server-deployment
+    app: professional-website
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      name: web-server-pod
+      app: professional-website
+  template:
+    metadata:
+      labels:
+        name: web-server-pod
+        app: professional-website
+    spec:
+      containers:
+        - name: web-server
+          image: antage/apache2-php5
+          ports:
+            - containerPort: 8080
