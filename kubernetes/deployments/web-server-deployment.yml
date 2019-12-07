@@ -19,6 +19,6 @@ spec:
     spec:
       containers:
         - name: web-server
-          image: antage/apache2-php5
+          image: nginx
           ports:
-            - containerPort: 8080
+            - containerPort: 80
