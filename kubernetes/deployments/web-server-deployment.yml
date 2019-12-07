@@ -23,4 +23,6 @@ spec:
           ports:
             - containerPort: 80
       tolerations:
-        - effect: NoSchedule
+        - key: app
+          value: professional-website
+          effect: NoSchedule
