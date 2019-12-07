@@ -22,3 +22,5 @@ spec:
           image: nginx
           ports:
             - containerPort: 80
+      tolerations:
+        - effect: NoSchedule
