@@ -1,6 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
+  name: testPod
   labels:
     name: web-server-pod
     app: professional-website
