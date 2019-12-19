@@ -18,7 +18,7 @@ spec:
         app: professional-website
     spec:
       containers:
-        - name: web-server
+        - name: database-pod
           image: mariadb
           volumeMounts:
             - mountPath: /var/lib/mysql
