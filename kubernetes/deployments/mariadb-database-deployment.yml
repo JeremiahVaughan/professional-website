@@ -19,7 +19,7 @@ spec:
     spec:
       containers:
         - name: database-pod
-          image: mariadb
+          image: mariadb/server
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: site-db
