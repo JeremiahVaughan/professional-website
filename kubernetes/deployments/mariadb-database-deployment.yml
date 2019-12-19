@@ -20,5 +20,10 @@ spec:
       containers:
         - name: web-server
           image: mariadb
+          volumeMounts:
+            - mountPath: /var/lib/mysql
+              name: site-db
           ports:
             - containerPort: 3306
+      volumes:
+        - name: site-db

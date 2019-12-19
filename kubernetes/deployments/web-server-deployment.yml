@@ -20,5 +20,10 @@ spec:
       containers:
         - name: web-server
           image: wordpress
+          volumeMounts:
+            - mountPath: /var/www/html
+              name: wordpress-storage
           ports:
             - containerPort: 80
+      volumes:
+        - name: wordpress-storage
