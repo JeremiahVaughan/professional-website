@@ -20,6 +20,15 @@ spec:
       containers:
         - name: database-pod
           image: mariadb/server
+          env:
+            - name: MARIADB_ROOT_PASSWORD
+              value:
+            - name: MARIADB_USER
+              value:
+            - name: MARIADB_PASSWORD
+              value:
+            - name: MARIADB_DATABASE
+              value:
           volumeMounts:
             - mountPath: /var/lib/mysql
               name: site-db
