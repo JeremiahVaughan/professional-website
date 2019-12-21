@@ -1,3 +1,17 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  database-storage-space
+  labels:
+    name: database-storage-space
+    app: professional-website
+spec:
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 10Gi
+---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -6,7 +20,7 @@ metadata:
     name: database-deployment
     app: professional-website
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: database-pod
@@ -22,7 +36,9 @@ spec:
           image: mariadb/server
           env:
             - name: MARIADB_ROOT_PASSWORD
-              value:
+              valueFrom:
+                secretKeyRef:
+                  key:
             - name: MARIADB_USER
               value:
             - name: MARIADB_PASSWORD
@@ -36,3 +52,5 @@ spec:
             - containerPort: 3306
       volumes:
         - name: site-db
+          persistentVolumeClaim:
+            claimName: database-storage-space
