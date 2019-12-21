@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  database-storage-space
+  name: database-storage-space
   labels:
     name: database-storage-space
     app: professional-website
