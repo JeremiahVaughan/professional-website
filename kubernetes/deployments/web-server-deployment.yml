@@ -39,15 +39,18 @@ spec:
               value: database-service
             - name: WORDPRESS_DB_USER
               valueFrom:
-                secretKeyRef: db-credentials
+                secretKeyRef:
+                  name: db-credentials
                   key: db-username
             - name: WORDPRESS_DB_PASSWORD
               valueFrom:
-                secretKeyRef: db-credentials
+                secretKeyRef:
+                  name: db-credentials
                   key: db-user-password
             - name: WORDPRESS_DB_NAME
               valueFrom:
-                secretKeyRef: db-credentials
+                secretKeyRef:
+                  name: db-credentials
                   key: db-name
           volumeMounts:
             - name: wordpress-storage

@@ -37,19 +37,23 @@ spec:
           env:
             - name: MARIADB_ROOT_PASSWORD
               valueFrom:
-                secretKeyRef: db-credentials
+                secretKeyRef:
+                  name: db-credentials
                   key: db-user-root-password
             - name: MARIADB_USER
               valueFrom:
-                secretKeyRef: db-credentials
+                secretKeyRef:
+                  name: db-credentials
                   key: db-username
             - name: MARIADB_PASSWORD
               valueFrom:
-                secretKeyRef: db-credentials
+                secretKeyRef:
+                  name: db-credentials
                   key: db-user-password
             - name: MARIADB_DATABASE
               valueFrom:
-                secretKeyRef: db-credentials
+                secretKeyRef:
+                  name: db-credentials
                   key: db-name
           volumeMounts:
             - mountPath: /var/lib/mysql
