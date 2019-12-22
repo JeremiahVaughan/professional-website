@@ -7,7 +7,7 @@ metadata:
     app: professional-website
 spec:
   accessModes:
-     - ReadWriteMany
+     - ReadWriteOnce
   resources:
     requests:
       storage: 10Gi
@@ -20,7 +20,7 @@ metadata:
     name: web-server-deployment
     app: professional-website
 spec:
-  replicas: 3
+  replicas: 1
   selector:
     matchLabels:
       name: web-server-pod
@@ -38,11 +38,17 @@ spec:
             - name: WORDPRESS_DB_HOST
               value: database-service
             - name: WORDPRESS_DB_USER
-              value:
+              valueFrom:
+                secretKeyRef: db-credentials
+                  key: db-username
             - name: WORDPRESS_DB_PASSWORD
-              value:
+              valueFrom:
+                secretKeyRef: db-credentials
+                  key: db-user-password
             - name: WORDPRESS_DB_NAME
-              value:
+              valueFrom:
+                secretKeyRef: db-credentials
+                  key: db-name
           volumeMounts:
             - name: wordpress-storage
               mountPath: /var/www/html
