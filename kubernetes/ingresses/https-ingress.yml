@@ -1,11 +1,11 @@
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
-  name: tls-ingress
+  name: https-ingress
   annotations:
     kubernetes.io/ingress.global-static-ip-name: 35.225.101.58
     networking.gke.io/managed-certificates: professional-website-certificate
 spec:
   backend:
-    serviceName: professional-website-web-server
+    serviceName: professional-website-web-server-service
     servicePort: 80
