@@ -3,7 +3,7 @@ kind: Ingress
 metadata:
   name: https-ingress
   annotations:
-    kubernetes.io/ingress.global-static-ip-name: 35.225.101.58
+    kubernetes.io/ingress.global-static-ip-name: '35.225.101.58'
     networking.gke.io/managed-certificates: professional-website-certificate
 spec:
   backend:
