@@ -6,7 +6,7 @@ metadata:
     name: professional-website-web-server
     app: professional-website
 spec:
-  type: LoadBalancer
+  type: ClusterIP
   selector:
     name: web-server-pod
     app: professional-website
@@ -15,7 +15,3 @@ spec:
       protocol: TCP
       port: 80
       targetPort: 80
-    - name: https
-      protocol: TCP
-      port: 443
-      targetPort: 443
