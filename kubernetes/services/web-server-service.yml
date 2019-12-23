@@ -6,6 +6,7 @@ metadata:
     name: professional-website-web-server
     app: professional-website
 spec:
+  type: LoadBalancer
   selector:
     name: web-server-pod
     app: professional-website
