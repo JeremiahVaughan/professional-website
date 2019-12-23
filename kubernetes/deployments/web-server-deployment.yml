@@ -57,6 +57,7 @@ spec:
               mountPath: /var/www/html
           ports:
             - containerPort: 80
+            - containerPort: 443
       volumes:
         - name: wordpress-storage
           persistentVolumeClaim:
