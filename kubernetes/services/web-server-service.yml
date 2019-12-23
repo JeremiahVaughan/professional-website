@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: professional-website-web-server-service
   labels:
-    name: professional-website-web-server
+    name: professional-website-web-server-service
     app: professional-website
 spec:
   type: NodePort
