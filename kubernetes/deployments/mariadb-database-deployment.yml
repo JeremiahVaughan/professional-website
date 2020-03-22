@@ -1,17 +1,3 @@
-apiVersion: v1
-kind: PersistentVolumeClaim
-metadata:
-  name: database-storage-space
-  labels:
-    name: database-storage-space
-    app: professional-website
-spec:
-  accessModes:
-    - ReadWriteOnce
-  resources:
-    requests:
-      storage: 10Gi
----
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -63,5 +49,6 @@ spec:
               name: mysql
       volumes:
         - name: site-db
-          persistentVolumeClaim:
-            claimName: database-storage-space
+          emptyDir: {}
+
+
