@@ -19,24 +19,19 @@ spec:
     spec:
       containers:
         - name: database-pod
-          image: mariadb/server
+          image: postgres
           env:
-            - name: MARIADB_ROOT_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: db-credentials
-                  key: db-user-root-password
-            - name: MARIADB_USER
+            - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:
                   name: db-credentials
                   key: db-username
-            - name: MARIADB_PASSWORD
+            - name: POSTGRES_PASSWORD
               valueFrom:
                 secretKeyRef:
                   name: db-credentials
                   key: db-user-password
-            - name: MARIADB_DATABASE
+            - name: POSTGRES_DB
               valueFrom:
                 secretKeyRef:
                   name: db-credentials
@@ -45,8 +40,8 @@ spec:
             - mountPath: /var/lib/mysql
               name: site-db
           ports:
-            - containerPort: 3306
-              name: mysql
+            - containerPort: 5432
+              name: postgres
       volumes:
         - name: site-db
           emptyDir: {}
