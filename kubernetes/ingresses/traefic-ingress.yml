@@ -1,0 +1,28 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: https-ingress
+spec:
+  rules:
+    - host: jeremiahvaughan.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: professional-website-web-server-service
+              servicePort: 80
+          - path: /foo
+            backend:
+              serviceName: service1
+              servicePort: 80
+    - host: alexalpert.com
+          http:
+            paths:
+              - path: /
+                backend:
+                  serviceName: service1
+                  servicePort: 80
+              - path: /foo
+                backend:
+                  serviceName: service1
+                  servicePort: 80
