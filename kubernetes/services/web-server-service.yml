@@ -6,12 +6,12 @@ metadata:
     name: professional-website-web-server-service
     app: professional-website
 spec:
-  type: NodePort
+  #type: NodePort
   selector:
     name: web-server-pod
     app: professional-website
   ports:
-    - name: http
+    - #name: http
       protocol: TCP
       port: 80
       targetPort: 80
