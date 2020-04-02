@@ -6,10 +6,10 @@ metadata:
     ingress.kubernetes.io/ssl-redirect: "false"
 spec:
   rules:
-    - host: jeremiahvaughan.com
-      http:
+    #- host: jeremiahvaughan.com
+    - http:
         paths:
-          - path: /
+          - path: /bug
             backend:
               serviceName: professional-website-web-server-service
               servicePort: 80

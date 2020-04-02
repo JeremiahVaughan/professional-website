@@ -1,0 +1,30 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: https-ingress
+  annotations:
+    kubernetes.io/ingress.class: "traefik"
+spec:
+  rules:
+    - host: jeremiahvaughan.com
+      http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: professional-website-web-server-service
+              servicePort: 80
+#    - host: alexalpert.com
+#      http:
+#        paths:
+#          - path: /*
+#            backend:
+#              serviceName: professional-website-web-server-service
+#              servicePort: 80
+    - http:
+        paths:
+          - path: /*
+            backend:
+              serviceName: professional-website-web-server-service
+              servicePort: 80
+
+
