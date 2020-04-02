@@ -6,13 +6,13 @@ metadata:
     kubernetes.io/ingress.class: "traefik"
 spec:
   rules:
-#    - host: jeremiahvaughan.com
-#      http:
-#        paths:
-#          - path: /*
-#            backend:
-#              serviceName: professional-website-web-server-service
-#              servicePort: 80
+    - host: jeremiahvaughan.com
+      http:
+        paths:
+          - path: /
+            backend:
+              serviceName: professional-website-web-server-service
+              servicePort: 80
 #    - host: alexalpert.com
 #      http:
 #        paths:
