@@ -1,0 +1,13 @@
+apiVersion: cert-manager.io/v1alpha2
+kind: Certificate
+metadata:
+  name: jeremiahvaughan.com
+  namespace: default
+spec:
+  secretName: jeremiah-vaughan-net-tls
+  issuerRef:
+    name: letsencrypt-staging
+    kind: ClusterIssuer
+  commonName: jeremiahvaughan.com
+  dnsNames:
+    - jeremiahvaughan.com
